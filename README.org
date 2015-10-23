@@ -29,4 +29,4 @@ For more information, please email the author.
 
 
 
-Copyright (c) 2012-2013, Wang Yang (wywincl@gmail.com). All rights reserved.
+Copyright (c) 2015-2016, Wang Yang (wywincl@gmail.com). All rights reserved.
