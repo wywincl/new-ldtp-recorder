@@ -1,0 +1,32 @@
+* new ldtp recorder
+
+This program translates GUI Events to executable commands that fit the Linux Desktop Testing Project (LDTP, http://ldtp.freedesktop.org/).
+
+
+** Usage
+
+#+BEGIN_SRC bash
+$ ./new_ldtp_recorder.py [gui]
+#+END_SRC
+
+
+** Requirements
+
+- python 2.7
+- pyatspi2
+- Xlib
+- pymouse
+
+
+** Development
+
+*** Debug:
+
+There is a LDTP_RECORDER_DEBUG environment variable.
+See src/debug.py for more Information.
+
+For more information, please email the author.
+
+
+
+Copyright (c) 2012-2013, Wang Yang (wywincl@gmail.com). All rights reserved.
