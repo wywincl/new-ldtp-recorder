@@ -10,6 +10,7 @@ See 'LICENSE' in the source distribution for more information.
 """
 import pyatspi
 from constants import *
+from utils import show_get_attributes
 
 
 def _strip(s):
@@ -32,6 +33,7 @@ def get_ldtp_command(action_info):
     # print type(role_name), role_name
     # print type(ROLE_PUSH_BUTTON), ROLE_PUSH_BUTTON
     # print "role name: ", role_name, type(role_name)
+    # show_get_attributes(role)
 
     if role_name == ROLE_CHECK_BOX:
         if role.get_state_set().contains(pyatspi.STATE_CHECKED):
@@ -72,19 +74,22 @@ def get_ldtp_command(action_info):
             _strip(action_info.name))
 
     elif role_name == ROLE_SPIN_BUTTON:
-        return "ldtp.setvalue('%s', '%s', %s)" % (
+        value = role.get_current_value()
+        action_info.value = str(value)
+
+        return "ldtp.setvalue('%s', '%s', '%s')" % (
             _strip(action_info.window_name),
             _strip(action_info.name),
             _strip(action_info.value))
 
     elif role_name == ROLE_TEXT:
-        return "ldtp.settextvalue('%s', '%s', %s)" % (
+        return "ldtp.settextvalue('%s', '%s', '%s')" % (
             _strip(action_info.window_name),
             _strip(action_info.name),
             _strip(action_info.value))
 
     elif role_name == ROLE_TABLE_CELL:
-        return "ldtp.selectrow('%s', '%s', %s)" % (
+        return "ldtp.selectrow('%s', '%s', '%s')" % (
             _strip(action_info.window_name),
             _strip(action_info.name),
             _strip(action_info.value))
